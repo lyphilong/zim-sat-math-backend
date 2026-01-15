@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from typing import List, Optional, Literal
 
 
@@ -92,7 +92,7 @@ class AnswerSpec(BaseModel):
 # ==================================================
 
 class VocabNote(BaseModel):
-    model_config = {"populate_by_name": True}
+    model_config = ConfigDict(populate_by_name=True)
     
     term_en: str = Field(..., description="Từ/cụm từ tiếng Anh trong đề bài")
     term_vi: str = Field(..., description="Từ/cụm từ tiếng Việt tương ứng với từ/cụm từ tiếng Anh")

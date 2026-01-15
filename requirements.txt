@@ -3,6 +3,7 @@ uvicorn[standard]==0.24.0
 pydantic==2.5.0
 python-multipart==0.0.6
 python-dotenv==1.0.0
+typing-extensions>=4.5.0
 
 # Note: uvicorn is required by Vercel runtime for ASGI apps
 # mangum is not needed on Vercel (zero-config FastAPI)
