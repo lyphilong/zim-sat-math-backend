@@ -92,6 +92,8 @@ class AnswerSpec(BaseModel):
 # ==================================================
 
 class VocabNote(BaseModel):
+    model_config = {"populate_by_name": True}
+    
     term_en: str = Field(..., description="Từ/cụm từ tiếng Anh trong đề bài")
     term_vi: str = Field(..., description="Từ/cụm từ tiếng Việt tương ứng với từ/cụm từ tiếng Anh")
     part_of_speech: Optional[str] = Field(
@@ -100,8 +102,12 @@ class VocabNote(BaseModel):
     definition_vi: str = Field(
         ..., description="Giải thích ý nghĩa bằng tiếng Việt, giọng học thuật dễ hiểu"
     )
+    # Using register_level as field name to avoid shadowing BaseModel.register
+    # but keeping "register" as alias for backward compatibility
     register_level: Optional[str] = Field(
-        None, alias="register", description="Mức độ học thuật/chuyên ngành (vd: academic, everyday, test term)"
+        None, 
+        alias="register",
+        description="Mức độ học thuật/chuyên ngành (vd: academic, everyday, test term)"
     )
     example_en: Optional[str] = Field(
         None, description="Ví dụ câu tiếng Anh ngắn chứa từ/cụm từ đó (nếu hữu ích)"

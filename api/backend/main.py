@@ -90,7 +90,5 @@ async def solve_problem(request: ProblemRequest):
 
 # Note: On Vercel, the app is run automatically by the platform
 # For local development, use: uvicorn api.backend.main:app --reload
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+# (uvicorn should be installed separately for local dev, not in requirements.txt)
 
