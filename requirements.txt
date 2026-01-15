@@ -4,6 +4,9 @@ pydantic==2.5.0
 python-multipart==0.0.6
 python-dotenv==1.0.0
 
+# Mangum adapter for FastAPI on Vercel
+mangum==0.17.0
+
 # LLM provider (install to use LLM, otherwise uses mock)
 # litellm supports OpenAI, Anthropic, Cohere, Google, and many more
 # Install: pip install litellm

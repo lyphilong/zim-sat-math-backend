@@ -1,0 +1,11 @@
+{
+  "buildCommand": "",
+  "installCommand": "pip install -r api/requirements.txt",
+  "outputDirectory": "",
+  "functions": {
+    "api/app.py": {
+      "runtime": "python3.9"
+    }
+  }
+}
+

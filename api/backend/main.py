@@ -18,9 +18,10 @@ from services.schemas import SATMathSolutionOutput
 app = FastAPI(title="SAT Math Solver API")
 
 # CORS middleware để frontend có thể gọi API
+# Allow all origins for Vercel deployment (can be restricted in production)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:3001"],  # Next.js dev server
+    allow_origins=["*"],  # Allow all origins for Vercel deployment
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
