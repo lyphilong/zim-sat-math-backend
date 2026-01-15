@@ -1,11 +1,11 @@
 fastapi==0.104.1
-uvicorn[standard]==0.24.0
 pydantic==2.5.0
 python-multipart==0.0.6
 python-dotenv==1.0.0
 
-# Mangum adapter for FastAPI on Vercel
-mangum==0.17.0
+# Note: uvicorn is not needed on Vercel (Vercel runs FastAPI automatically)
+# For local development, install separately: pip install uvicorn[standard]
+# mangum is also not needed on Vercel (zero-config FastAPI)
 
 # LLM provider (install to use LLM, otherwise uses mock)
 # litellm supports OpenAI, Anthropic, Cohere, Google, and many more
