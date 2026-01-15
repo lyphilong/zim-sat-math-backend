@@ -6,8 +6,8 @@ import os
 import json
 from typing import Optional, List, Dict, Any
 
-# Add parent directory to path to import schemas
-from services.schemas import (
+# Import schemas using relative import (same package)
+from .schemas import (
     SATMathSolutionOutput,
     SATMeta,
     Summary,

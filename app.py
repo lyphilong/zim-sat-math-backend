@@ -7,14 +7,3 @@ We reuse the existing app defined in `api/backend/main.py`.
 """
 
 from api.backend.main import app  # noqa: F401
-
-{
-  "cells": [],
-  "metadata": {
-    "language_info": {
-      "name": "python"
-    }
-  },
-  "nbformat": 4,
-  "nbformat_minor": 2
-}

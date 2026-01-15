@@ -12,8 +12,8 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-# Add parent directory to path to import schemas
-from services.schemas import SATMathSolutionOutput
+# Import schemas using relative import
+from .services.schemas import SATMathSolutionOutput
 
 app = FastAPI(
     title="SAT Math Solver API",
@@ -70,8 +70,8 @@ async def solve_problem(request: ProblemRequest):
         )
     
     try:
-        # Import LLM service
-        from services.llm_service import solve_sat_problem
+        # Import LLM service using relative import
+        from .services.llm_service import solve_sat_problem
         
         # Call LLM service
         solution = await solve_sat_problem(
