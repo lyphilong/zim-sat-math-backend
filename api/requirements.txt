@@ -10,8 +10,8 @@ typing-extensions>=4.5.0
 # mangum==0.17.0
 
 # LLM provider (optional - uncomment to use)
-# litellm>=1.0.0
+litellm>=1.0.0
 
 # For Langfuse integration (optional)
-# langfuse>=2.0.0
+langfuse>=2.0.0
 
