@@ -1,6 +1,12 @@
 {
   "buildCommand": "",
   "installCommand": "pip install -r api/requirements.txt",
-  "outputDirectory": ""
+  "outputDirectory": "",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/$1"
+    }
+  ]
 }
 

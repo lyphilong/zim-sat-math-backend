@@ -15,7 +15,14 @@ load_dotenv()
 # Add parent directory to path to import schemas
 from services.schemas import SATMathSolutionOutput
 
-app = FastAPI(title="SAT Math Solver API")
+app = FastAPI(
+    title="SAT Math Solver API",
+    description="API for solving SAT Math problems using LLM",
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/openapi.json"
+)
 
 # CORS middleware để frontend có thể gọi API
 # Allow all origins for Vercel deployment (can be restricted in production)
