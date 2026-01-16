@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Import schemas using relative import
-from .services.schemas import SATMathSolutionOutput
+from .services.schemas import SATMathSolutionOutput, SATEnglishSolutionOutput
 
 app = FastAPI(
     title="SAT Math Solver API",
@@ -39,6 +39,10 @@ class ProblemRequest(BaseModel):
     problem: Optional[str] = None
     image_base64: Optional[str] = None
     image_mime_type: Optional[str] = None
+
+
+class EnglishProblemRequest(BaseModel):
+    problem: str
 
 
 @app.get("/")
@@ -85,6 +89,29 @@ async def solve_problem(request: ProblemRequest):
         raise HTTPException(
             status_code=500,
             detail=f"Error solving problem: {str(e)}"
+        )
+
+
+@app.post("/solve-english", response_model=SATEnglishSolutionOutput)
+async def solve_english_problem(request: EnglishProblemRequest):
+    """
+    Solve SAT English problem using LLM (text-only).
+    """
+    if not request.problem:
+        raise HTTPException(
+            status_code=400,
+            detail="Problem text must be provided for SAT English",
+        )
+
+    try:
+        from .services.llm_service import solve_sat_english_problem
+
+        solution = await solve_sat_english_problem(problem=request.problem)
+        return solution
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error solving SAT English problem: {str(e)}",
         )
 
 
